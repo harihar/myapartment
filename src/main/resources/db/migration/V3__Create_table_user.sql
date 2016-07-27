@@ -1,0 +1,23 @@
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created_by` bigint(20) NOT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `modified_by` bigint(20) NOT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `email_id` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `is_enabled` bit(1) NOT NULL,
+  `is_locked` bit(1) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `mobile_number` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `adr_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_r9kvst217faqa7vgeyy51oos0` (`email_id`),
+  UNIQUE KEY `UK_lt2b8ocin3hdnm9q6fm4o8xnr` (`mobile_number`),
+  UNIQUE KEY `UK_sb8bbouer5wak8vyiiy4pf2bx` (`username`),
+  KEY `FK_sdh0bbhi9wt5hf0ss2j6p35gm` (`adr_id`),
+  CONSTRAINT `FK_sdh0bbhi9wt5hf0ss2j6p35gm` FOREIGN KEY (`adr_id`) REFERENCES `address` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
